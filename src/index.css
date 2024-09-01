@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bgimg {
+    background-image: url("/src/assets/images/bg-img/06.jpg");
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+}
+
+.bim {
+    background-image: url("/src/assets/images/shape-img/01.jpg");
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+}
+
+.hLogin {
+    background-image: url("/src/assets/images/bg-img/07.jpg");
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+}
+
+.mLocation {
+    background-image: url("/src/assets/images/shape-img/11.png");
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+}
+
+.TopBanner {
+    background-image: url("/src/assets/images/pageheader/bg/02.jpg");
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+}
