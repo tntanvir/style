@@ -114,16 +114,16 @@ const AddProduct = () => {
                         onChange={(e) => setPrice(e.target.value)}
                         required
                     />
-                    <MaterialSelect label="Category" value={category} onChange={(e) => setCategory(e)}>
-                        {/* Add your category options here */}
-                        {
-                            cata && cata.map((e, i) => (
-                                <Option key={i} value={e.name}>{e.name}</Option>
+                    {
+                        cata &&
+                        <MaterialSelect label="Category" value={category} onChange={(e) => setCategory(e)}>
+                            {cata?.map((e, i) => (
 
-                            ))
-                        }
-                        {/* Add more options as needed */}
-                    </MaterialSelect>
+                                <Option key={i} value={e.name}>{e.name}</Option>
+                            )
+                            )}
+                        </MaterialSelect>
+                    }
                     <Input
                         type="number"
                         label="Quantity"
@@ -167,3 +167,4 @@ const AddProduct = () => {
 };
 
 export default AddProduct;
+
