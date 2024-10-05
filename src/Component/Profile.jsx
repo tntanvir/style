@@ -43,9 +43,9 @@ const profile = () => {
                     {/* Account Info */}
                     <div className="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition">
                         <h2 className="text-xl font-semibold mb-4">Account Information</h2>
-                        <p className="text-gray-700">Name: <span className="font-bold">John Doe</span></p>
-                        <p className="text-gray-700">Email: <span className="font-bold">john.doe@example.com</span></p>
-                        <p className="text-gray-700">Phone: <span className="font-bold">+123456789</span></p>
+                        <p className="text-gray-700">Name: <span className="font-bold">{userdata?.name}</span></p>
+                        <p className="text-gray-700">Email: <span className="font-bold">{userdata?.user?.email}</span></p>
+                        <p className="text-gray-700">Phone: <span className="font-bold">{userdata?.phone}</span></p>
                     </div>
                 </div>
 

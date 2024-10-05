@@ -207,7 +207,7 @@ const Itemreviwe = ({ url, id }) => {
 
                                                 <div className='flex md:flex-row flex-col justify-center items-center md:justify-between w-full'>
                                                     <div className='flex md:gap-9 gap-2 md:flex-row flex-col justify-center md:justify-between items-center'>
-
+                                                        {e.user}
                                                     </div>
 
                                                     <div className='flex gap-2'>

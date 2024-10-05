@@ -168,7 +168,7 @@ const Login = () => {
 
     return (
         <div className='min-h-screen flex justify-center py-3'>
-            <div className=' md:w-10/12 p-11 shadow-md'>
+            <div className=' md:w-10/12  '>
 
 
                 <Tabs value='Singin' >
@@ -182,28 +182,30 @@ const Login = () => {
                         </Tab>
 
                     </TabsHeader>
-                    <TabsBody>
+                    <TabsBody >
                         <TabPanel value={"Singup"} className='p-1'>
-                            <Card color="transparent" shadow={false} className='w-full'>
-
+                            <Card color="transparent" className='w-full p-3'>
+                                <h1 className='text-center text-3xl font-bold text-black'>Sing up</h1>
                                 <form className="mt-8 mb-2 w-full " onSubmit={SingUp}>
+                                    <div className='mb-3'>
+                                        <Typography variant="h6" color="blue-gray" className="mb-3">
+                                            Image
+                                        </Typography>
+                                        <Input
+                                            size="lg"
+                                            type='file'
+                                            placeholder="image file"
+                                            className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
+                                            labelProps={{
+                                                className: "before:content-none after:content-none",
+                                            }}
 
+                                            onChange={(e) => updateImgtoUrl(e.target.files[0])}
+                                        />
+                                    </div>
                                     <div className='flex gap-2'>
                                         <div className="mb-1 flex flex-col gap-6 w-1/2">
-                                            <Typography variant="h6" color="blue-gray" className="-mb-3">
-                                                Image
-                                            </Typography>
-                                            <Input
-                                                size="lg"
-                                                type='file'
-                                                placeholder="image file"
-                                                className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-                                                labelProps={{
-                                                    className: "before:content-none after:content-none",
-                                                }}
 
-                                                onChange={(e) => updateImgtoUrl(e.target.files[0])}
-                                            />
                                             <Typography variant="h6" color="blue-gray" className="-mb-3">
                                                 User Name
                                             </Typography>
@@ -247,7 +249,7 @@ const Login = () => {
                                             />
 
                                             <Typography variant="h6" color="blue-gray" className="-mb-3">
-                                                Confirm  Password
+                                                Password
                                             </Typography>
                                             <Input
                                                 type="password"
@@ -299,7 +301,7 @@ const Login = () => {
                                                 <Option value='seller'>Seller</Option>
                                             </Select>
                                             <Typography variant="h6" color="blue-gray" className="-mb-3">
-                                                Password
+                                                Confirm  Password
                                             </Typography>
                                             <Input
                                                 type="password"
@@ -320,21 +322,21 @@ const Login = () => {
                                             <Button className="mt-6" fullWidth type='submit'>
                                                 sign up
                                             </Button>
-                                            <Typography color="gray" className="mt-4 text-center font-normal">
+                                            {/* <Typography color="gray" className="mt-4 text-center font-normal">
                                                 Already have an account?{" "}
                                                 <a href="#" className="font-medium text-gray-900">
                                                     Sign In
                                                 </a>
-                                            </Typography>
+                                            </Typography> */}
                                         </div>
                                     </div>
                                 </form>
                             </Card>
                         </TabPanel>
-                        <TabPanel value={"Singin"} className=' flex justify-center'>
-                            <Card color="transparent" shadow={false}>
-
-                                <form className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96" onSubmit={Singin}>
+                        <TabPanel value={"Singin"} className=' flex justify-center min-h-screen items-center'>
+                            <Card color="transparent" className=''>
+                                <h1 className='text-center text-3xl font-bold text-black'>Sing in</h1>
+                                <form className="mt-5 mb-2 w-80 max-w-screen-lg sm:w-96 p-3 " onSubmit={Singin}>
                                     <div className="mb-1 flex flex-col gap-6">
                                         <Typography variant="h6" color="blue-gray" className="-mb-3">
                                             User Name

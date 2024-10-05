@@ -23,6 +23,7 @@ import Profile from "./Component/Profile";
 import MainLayout from "./Component/MainLayout";
 import Orders from "./Component/Orders";
 import AddProduct from "./Component/AddProduct";
+import Orderproduct from "./Component/Orderproduct";
 
 export const contextAPI = createContext();
 
@@ -59,6 +60,7 @@ const App = () => {
               <Route path="" element={<Profile />} />
               <Route path="addproduct" element={<AddProduct />} />
               <Route path="orderhistory" element={<Orders />} />
+              <Route path="orderproduct" element={<Orderproduct />} />
 
             </Route>
           </Routes>

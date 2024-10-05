@@ -47,7 +47,7 @@ const Sidebar = () => {
             .catch(err => console.error('Logout error:', err));
     };
     return (
-        <div className="w-1/4 h-screen bg-gray-100 p-4">
+        <div className="w-1/4 min-h-screen bg-gray-100 p-4">
 
             <aside className="">
                 {userdata && <div className="mb-8 text-center">
@@ -77,9 +77,14 @@ const Sidebar = () => {
 
                         <li className="p-3 bg-white text-blue-500 rounded-lg mt-2 cursor-pointer text-center hover:bg-blue-500 hover:text-white transition">
                             <NavLink to="orderhistory" activeClassName="font-bold" className="block p-2 text-center">
-                                Order History
+                                My  Order History
                             </NavLink>
                         </li>
+                        {userdata?.user_type !== 'buyer' && userdata?.user_type !== 'admin' && <li className="p-3 bg-white text-blue-500 rounded-lg mt-2 cursor-pointer text-center hover:bg-blue-500 hover:text-white transition">
+                            <NavLink to="orderproduct" activeClassName="font-bold" className="block p-2 text-center">
+                                Request Order Product
+                            </NavLink>
+                        </li>}
                         <li className="p-3 bg-red-500 text-white rounded-lg mt-2 cursor-pointer text-center hover:bg-red-700 transition">
                             <button onClick={handleLogout} className="block p-2 text-center w-full">
                                 Logout

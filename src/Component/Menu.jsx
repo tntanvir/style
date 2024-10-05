@@ -24,6 +24,8 @@ function NavList() {
     <List className=" lg:flex-row  gap-1 md:gap-10 ">
       <Link to="/"><Typography className="text-sm font-semibold py-1.5 lg:py-0 ">Home</Typography></Link>
       <Link to="/shop"><Typography className="text-sm font-semibold py-1.5 lg:py-0 ">Shop</Typography></Link>
+      <Link to="/about"><Typography className="text-sm font-semibold py-1.5 lg:py-0 ">About</Typography></Link>
+      <Link to="/contact"><Typography className="text-sm font-semibold py-1.5 lg:py-0 ">Contect</Typography></Link>
 
 
 

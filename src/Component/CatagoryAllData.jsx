@@ -126,3 +126,7 @@ const CatagoryAllData = ({ cta, id }) => {
 }
 
 export default CatagoryAllData
+
+
+
+
