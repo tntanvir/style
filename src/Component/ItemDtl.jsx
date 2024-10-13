@@ -77,8 +77,8 @@ const ItemDtl = () => {
         <div className='min-h-screen flex flex-col gap-10 md:p-5 p-2  '>
             {
                 itemDtails && (
-                    <div className='flex md:flex-row flex-col justify-center items-center  md:justify-evenly mb-10'>
-                        <div className='md:w-1/3 w-64'>
+                    <div className='flex md:flex-row flex-col justify-center items-start  md:justify-evenly mb-10'>
+                        <div className='md:w-1/3 w-64 '>
                             <img src={itemDtails.image} alt="" className='rounded-xl' />
                         </div>
                         <div className='md:w-3/5 w-full flex flex-col gap-1 md:gap-3'>
@@ -90,7 +90,10 @@ const ItemDtl = () => {
                             </div>
                             <h1 className='text-2xl font-bold md:text-start text-center'>${itemDtails.price}</h1>
                             <p className='md:text-start text-center font-bold'>{itm.seller}</p>
-                            <p>{itemDtails.description}</p>
+                            <div className='max-h-[15rem] overflow-y-scroll'>
+
+                                <p >{itemDtails.description}</p>
+                            </div>
 
                             <div className=' pt-4 p-3 flex gap-3 flex-col'>
                                 <div className='w-full flex md:flex-row flex-col  gap-4'>

@@ -24,6 +24,7 @@ import MainLayout from "./Component/MainLayout";
 import Orders from "./Component/Orders";
 import AddProduct from "./Component/AddProduct";
 import Orderproduct from "./Component/Orderproduct";
+import Singup from "./Component/Singup";
 
 export const contextAPI = createContext();
 
@@ -31,7 +32,7 @@ const App = () => {
   const [pageLoad, setPageLoad] = useState(false);
 
   return (
-    <>
+    <div >
       <contextAPI.Provider value={[pageLoad, setPageLoad]}>
         <Router>
           <Menu />
@@ -40,10 +41,10 @@ const App = () => {
             <Route path='/about' element={<About />} />
             <Route path='/contact' element={<Contact />} />
             <Route path='/shop' element={<Shop />} />
-            {/* <Route path='/profile' element={<Profile />} /> */}
+            <Route path='/singup' element={<Singup />} />
             <Route path='/shop/:id' element={<ItemDtl />} />
             <Route path='/blog' element={<Blog />} />
-            <Route path="/login" element={<Login />} />
+            <Route path="/singin" element={<Login />} />
             <Route path="/payment" element={<Private childern={<Payment />} />} />
             <Route path="*" element={<Notfound />} />
 
@@ -67,7 +68,7 @@ const App = () => {
           <Footer />
         </Router>
       </contextAPI.Provider>
-    </>
+    </div>
   )
 }
 

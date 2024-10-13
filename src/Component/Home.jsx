@@ -5,11 +5,13 @@ import Homeshowcase from './Homeshowcase'
 import HomeLogin from './HomeLogin'
 import MapLocation from './MapLocation'
 import Brand from './Brand'
+import BannerSlider from './BannerSlider'
 
 const Home = () => {
     return (
-        <div>
-            <Hero />
+        <div >
+            <BannerSlider />
+            {/* <Hero /> */}
             <Homecatagory />
             <Homeshowcase />
             <HomeLogin />
