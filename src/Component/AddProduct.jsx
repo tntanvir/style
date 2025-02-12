@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Button, Input, Textarea, Select as MaterialSelect, Option } from '@material-tailwind/react';
 import Select from 'react-select';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const AddProduct = () => {
     const [image, setImage] = useState('');
@@ -27,6 +28,8 @@ const AddProduct = () => {
         { value: 'green', label: 'Green' },
     ];
 
+    const navigate = useNavigate()
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -49,7 +52,7 @@ const AddProduct = () => {
         formData.append('color', color.map(c => c.value).join(',')); // Join multiple values with a comma
 
         try {
-            const response = await fetch('https://api-clothify.onrender.com/store/products/', {
+            const response = await fetch('https://api-store-iota.vercel.app/store/products/', {
                 method: 'POST',
                 headers: {
                     'Authorization': `Token ${sessionStorage.getItem('token')}`,
@@ -59,7 +62,9 @@ const AddProduct = () => {
             });
 
             const data = await response.json();
-            console.log(data)
+            if (data) {
+                navigate('/shop')
+            }
 
         } catch (error) {
             console.error('Error adding product:', error);
@@ -68,7 +73,7 @@ const AddProduct = () => {
 
     const [cata, setCata] = useState(null)
     useEffect(() => {
-        fetch('https://api-clothify.onrender.com/store/category/')
+        fetch('https://api-store-iota.vercel.app/store/category/')
             .then(res => res.json())
             .then(data => {
                 setCata(data)

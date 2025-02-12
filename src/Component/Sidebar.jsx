@@ -6,16 +6,16 @@ import { NavLink } from 'react-router-dom';
 import { contextAPI } from '../App';
 
 const Sidebar = () => {
-    const [userdata, setUserdata] = useState(null);
     const [pageLoad, setPageLoad] = useContext(contextAPI);
 
 
 
     const navigate = useNavigate()
+    const [userdata, setUserdata] = useState(null);
     useEffect(() => {
         const username = sessionStorage.getItem("username");
         if (username) {
-            fetch(`https://api-clothify.onrender.com/authore/user/${username}/`)
+            fetch(`https://api-store-iota.vercel.app/authore/user/${username}/`)
                 .then(res => res.json())
                 .then(data => setUserdata(data))
         }
@@ -24,7 +24,7 @@ const Sidebar = () => {
 
 
     const handleLogout = () => {
-        fetch('https://api-clothify.onrender.com/authore/logout/', {
+        fetch('https://api-store-iota.vercel.app/authore/logout/', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -39,7 +39,7 @@ const Sidebar = () => {
                     sessionStorage.removeItem("token");
                     sessionStorage.removeItem("username");
                     setPageLoad(!pageLoad)
-                    navigate("/login");
+                    navigate("/singin");
                 } else {
                     console.error('Failed to log out');
                 }

@@ -29,7 +29,7 @@ const Itemreviwe = ({ url, id }) => {
     const [value, setValue] = useState("⭐⭐⭐⭐⭐");
 
     const ReviewSent = () => {
-        fetch(`https://api-clothify.onrender.com/store/products/${id}/reviews/`, {
+        fetch(`https://api-store-iota.vercel.app/store/products/${id}/reviews/`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -42,11 +42,14 @@ const Itemreviwe = ({ url, id }) => {
             }),
         })
             .then(res => res.json())
-            .then(() => setLoad(!load))
+            .then(() => {
+                setLoad(!load)
+                setText('')
+            })
     }
 
     useEffect(() => {
-        fetch(`https://api-clothify.onrender.com/store/products/${id}/reviews/`)
+        fetch(`https://api-store-iota.vercel.app/store/products/${id}/reviews/`)
             .then(res => res.json())
             .then(data => {
                 setReviews(data)
@@ -81,7 +84,7 @@ const Itemreviwe = ({ url, id }) => {
 
 
     const EditReviwe = (id) => {
-        fetch(`https://api-clothify.onrender.com/store/reviews/${id}`)
+        fetch(`https://api-store-iota.vercel.app/store/reviews/${id}/`)
             .then(res => res.json())
             .then(data => {
                 setEditreviewText(data.review_text);
@@ -94,7 +97,7 @@ const Itemreviwe = ({ url, id }) => {
             })
     }
     const EditConfirm = (id) => {
-        fetch(`https://api-clothify.onrender.com/store/reviews/${id}/`, {
+        fetch(`https://api-store-iota.vercel.app/store/reviews/${id}/`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -121,7 +124,7 @@ const Itemreviwe = ({ url, id }) => {
 
 
     const deleteCmt = (id) => {
-        fetch(`https://api-clothify.onrender.com/store/reviews/${id}/`, {
+        fetch(`https://api-store-iota.vercel.app/store/reviews/${id}/`, {
             method: 'DELETE',
             headers: {
                 'Authorization': `Token ${sessionStorage.getItem('token')}`,
@@ -135,7 +138,7 @@ const Itemreviwe = ({ url, id }) => {
     const [productInOrderHistory, setProductInOrderHistory] = useState(false);
     useEffect(() => {
 
-        fetch(`https://api-clothify.onrender.com/store/order-history/check-product/${id}/`, {
+        fetch(`https://api-store-iota.vercel.app/store/order-history/check-product/${id}/`, {
             method: 'GET',
             headers: {
                 'Authorization': `Token ${sessionStorage.getItem('token')}`,
@@ -174,6 +177,7 @@ const Itemreviwe = ({ url, id }) => {
                                     labelProps={{
                                         className: "hidden",
                                     }}
+                                    value={text}
                                     containerProps={{ className: "min-w-[100px]" }}
                                     onChange={(e) => setText(e.target.value)} />
 
@@ -198,16 +202,16 @@ const Itemreviwe = ({ url, id }) => {
                         bol ?
                             <div className='flex flex-col gap-1.5'>
                                 {
-                                    reviews?.map((e, i) => (
+                                    reviews && reviews?.map((e, i) => (
                                         <div key={i} className='flex md:flex-row flex-col justify-center gap-10 rounded-md border p-1'>
                                             <div className='flex justify-center items-center'>
-                                                <UserImg name={e.user} />
+                                                <UserImg name={e.user.username} />
                                             </div>
                                             <div className='md:w-10/12 flex  w-full items-center justify-center flex-col gap-2 '>
 
                                                 <div className='flex md:flex-row flex-col justify-center items-center md:justify-between w-full'>
                                                     <div className='flex md:gap-9 gap-2 md:flex-row flex-col justify-center md:justify-between items-center'>
-                                                        {e.user}
+                                                        {e.user.username}
                                                     </div>
 
                                                     <div className='flex gap-2'>
@@ -215,7 +219,7 @@ const Itemreviwe = ({ url, id }) => {
 
                                                             {e.rating}
                                                         </div>
-                                                        {user === e.user && <Menu>
+                                                        {user === e.user.username && <Menu>
                                                             <MenuHandler >
                                                                 <button><BsThreeDotsVertical className='cursor-pointer' /></button>
                                                             </MenuHandler>

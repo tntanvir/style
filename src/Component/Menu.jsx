@@ -57,7 +57,7 @@
 //   useEffect(() => {
 //     const username = sessionStorage.getItem("username");
 //     if (username) {
-//       fetch(`https://api-clothify.onrender.com/authore/user/${username}/`)
+//       fetch(`https://api-store-iota.vercel.app/authore/user/${username}/`)
 //         .then(res => res.json())
 //         .then(data => {
 //           setUserdata(data)
@@ -224,7 +224,7 @@ export function Menu() {
   useEffect(() => {
     const username = sessionStorage.getItem("username");
     if (username) {
-      fetch(`https://api-clothify.onrender.com/authore/user/${username}/`)
+      fetch(`https://api-store-iota.vercel.app/authore/user/${username}/`)
         .then(res => res.json())
         .then(data => setUserdata(data));
     } else {

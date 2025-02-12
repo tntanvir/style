@@ -6,16 +6,25 @@ import HomeLogin from './HomeLogin'
 import MapLocation from './MapLocation'
 import Brand from './Brand'
 import BannerSlider from './BannerSlider'
+import Nexthero from './Nexthero'
+import Service from './Service'
+import { Clintreviews } from './Clintreviews'
+import ShowCategory from './ShowCategory'
+
 
 const Home = () => {
     return (
         <div >
-            <BannerSlider />
+            {/* <BannerSlider /> */}
             {/* <Hero /> */}
-            <Homecatagory />
+            <Nexthero />
+            <Service />
+            {/* <Homecatagory /> */}
             <Homeshowcase />
-            <HomeLogin />
-            <MapLocation />
+            <ShowCategory />
+            {/* <HomeLogin />
+            <MapLocation /> */}
+            <Clintreviews />
             <Brand />
         </div>
     )

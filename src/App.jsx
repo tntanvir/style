@@ -25,6 +25,7 @@ import Orders from "./Component/Orders";
 import AddProduct from "./Component/AddProduct";
 import Orderproduct from "./Component/Orderproduct";
 import Singup from "./Component/Singup";
+import CategoryAllProduct from "./Component/CategoryAllProduct";
 
 export const contextAPI = createContext();
 
@@ -41,6 +42,7 @@ const App = () => {
             <Route path='/about' element={<About />} />
             <Route path='/contact' element={<Contact />} />
             <Route path='/shop' element={<Shop />} />
+            <Route path='/shop/category/:slug' element={<CategoryAllProduct />} />
             <Route path='/singup' element={<Singup />} />
             <Route path='/shop/:id' element={<ItemDtl />} />
             <Route path='/blog' element={<Blog />} />

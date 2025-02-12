@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 const UserImg = ({ name }) => {
     const [data, setdata] = useState(null)
     useEffect(() => {
-        fetch(`https://api-clothify.onrender.com/authore/user/${name}/`)
+        fetch(`https://api-store-iota.vercel.app/authore/user/${name}/`)
             .then(res => res.json())
             .then(data => setdata(data))
     }, [])

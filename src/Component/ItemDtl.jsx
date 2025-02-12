@@ -5,6 +5,9 @@ import { Select, Option, Rating, Input, Button } from "@material-tailwind/react"
 import { TiPlus, TiMinus } from "react-icons/ti";
 import CatagoryAllData from './CatagoryAllData';
 import Itemreviwe from './Itemreviwe';
+import ShowCategory from './ShowCategory';
+import Homeshowcase from './Homeshowcase';
+import Brand from './Brand';
 
 
 const ItemDtl = () => {
@@ -33,7 +36,7 @@ const ItemDtl = () => {
 
         console.log({ 'size': selSize }, { 'color': selCol }, { 'quantity': cont })
 
-        fetch('https://api-clothify.onrender.com/store/cart/', {
+        fetch('https://api-store-iota.vercel.app/store/cart/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -57,7 +60,7 @@ const ItemDtl = () => {
     const [itemDtails, setItemDtails] = useState(null)
 
     useEffect(() => {
-        fetch(`https://api-clothify.onrender.com/store/products/${id}/`)
+        fetch(`https://api-store-iota.vercel.app/store/products/${id}/`)
             .then(res => res.json())
             .then(data => {
                 setItemDtails(data)
@@ -156,7 +159,18 @@ const ItemDtl = () => {
             <div>
                 {itemDtails && <Itemreviwe url={itemDtails.image} id={id} />}
             </div>
-            {cta && <CatagoryAllData cta={cta} id={id} />}
+            <div>
+
+                {cta && (<div>
+                    <h1 className='text-center text-4xl'>Same Category Products</h1>
+                    <CatagoryAllData cta={cta} id={id} />
+                </div>
+                )}
+                <ShowCategory />
+                <Homeshowcase />
+                <Brand />
+
+            </div>
         </div >
     )
 }

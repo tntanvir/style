@@ -13,7 +13,7 @@ const Orders = () => {
 
     // Fetch customer order history
     useEffect(() => {
-        fetch('https://api-clothify.onrender.com/store/orders/history/customer/', {
+        fetch('https://api-store-iota.vercel.app/store/orders/history/customer/', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -40,7 +40,7 @@ const Orders = () => {
     useEffect(() => {
         const username = sessionStorage.getItem("username");
         if (username) {
-            fetch(`https://api-clothify.onrender.com/authore/user/${username}/`)
+            fetch(`https://api-store-iota.vercel.app/authore/user/${username}/`)
                 .then(res => {
                     if (!res.ok) {
                         throw new Error("Failed to fetch user info.");
@@ -51,7 +51,7 @@ const Orders = () => {
                     if (data.user_type === "admin") {
                         setIsAdmin(true);
                         console.log('admin');
-                        fetch('https://api-clothify.onrender.com/store/admin/porducthistory/', {
+                        fetch('https://api-store-iota.vercel.app/store/admin/porducthistory/', {
                             method: 'GET',
                             headers: {
                                 'Content-Type': 'application/json',

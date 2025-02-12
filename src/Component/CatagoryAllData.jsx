@@ -59,7 +59,7 @@ var settings = {
 const CatagoryAllData = ({ cta, id }) => {
     const [data, setData] = useState([]);
     useEffect(() => {
-        fetch(`https://api-clothify.onrender.com/store/product/category/?category=${cta}`)
+        fetch(`https://api-store-iota.vercel.app/store/product/category/?category=${cta}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -71,7 +71,30 @@ const CatagoryAllData = ({ cta, id }) => {
     const arrowRef = useRef(null);
 
 
+    const frmSubmit = (id) => {
 
+
+
+        fetch('https://api-store-iota.vercel.app/store/cart/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Token ${sessionStorage.getItem('token')}`
+            },
+            body: JSON.stringify({
+                product_id: id,
+                quantity: 1,
+                color: 'black',
+                size: 'm'
+            })
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Item added:', data);
+
+            })
+            .catch(error => console.error('Error adding item to cart:', error));
+    }
 
 
     return (
@@ -93,6 +116,12 @@ const CatagoryAllData = ({ cta, id }) => {
                                     <div className="absolute top-0 left-0 w-full h-full p-10 flex justify-center items-end gap-2.5 backdrop-blur-sm text-white rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
 
 
+                                        <span className="text-gray-900 bg-primary p-3 rounded-full text-2xl cursor-pointer" onClick={() => frmSubmit(e.id)}>
+
+
+                                            <FaShoppingCart />
+
+                                        </span>
                                         <span className="text-gray-900 bg-primary p-3 rounded-full text-2xl">
                                             <Link to={`/shop/${e.id}`}>
 
@@ -104,7 +133,7 @@ const CatagoryAllData = ({ cta, id }) => {
                                         <div className="flex justify-between">
 
                                             <p className="">{e.category}</p>
-                                            <Rating value={e.ratings} readonly />
+                                            <Rating value={4} readonly />
                                         </div>
                                         <h1>{e.name}</h1>
                                         <div className="flex justify-between">

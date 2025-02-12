@@ -21,7 +21,7 @@ const UpdateOrderStatus = ({ statuss, orderId }) => {
         setError('');
 
         // Make the API request using fetch
-        fetch(`https://api-clothify.onrender.com/store/admin/orders/${orderId}/status/`, {
+        fetch(`https://api-store-iota.vercel.app/store/admin/orders/${orderId}/status/`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',

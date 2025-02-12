@@ -7,6 +7,7 @@ import { Input } from '@material-tailwind/react';
 import ShortBlog from './ShortBlog';
 import { useEffect } from 'react';
 import { IconButton, Typography } from "@material-tailwind/react";
+import Brand from './Brand';
 
 
 
@@ -27,7 +28,7 @@ const Shop = () => {
     }
 
     useEffect(() => {
-        fetch('https://api-clothify.onrender.com/store/products/?all=True')
+        fetch('https://api-store-iota.vercel.app/store/products/?all=True')
             .then(res => res.json())
             .then((data) => {
                 setAlldata(data);
@@ -36,7 +37,7 @@ const Shop = () => {
 
 
     useEffect(() => {
-        fetch('https://api-clothify.onrender.com/store/products/')
+        fetch('https://api-store-iota.vercel.app/store/products/')
             .then(res => res.json())
             .then(data => {
                 setFetchDaata(data);
@@ -48,7 +49,7 @@ const Shop = () => {
     // categories
     const [cata, setCata] = useState(null)
     useEffect(() => {
-        fetch('https://api-clothify.onrender.com/store/category/')
+        fetch('https://api-store-iota.vercel.app/store/category/')
             .then(res => res.json())
             .then(data => {
                 setCata(data)
@@ -56,8 +57,9 @@ const Shop = () => {
     }, [])
 
     const fillterItm = (cata) => {
+        console.log(cata)
         if (cata === "All") {
-            fetch('https://api-clothify.onrender.com/store/products/')
+            fetch('https://api-store-iota.vercel.app/store/products/')
                 .then(res => res.json())
                 .then(data => {
                     setFetchDaata(data);
@@ -66,7 +68,7 @@ const Shop = () => {
                 })
         }
         else {
-            fetch(`https://api-clothify.onrender.com/store/products/?category=${cata}`)
+            fetch(`https://api-store-iota.vercel.app/store/products/?category=${cata}`)
                 .then(res => res.json())
                 .then(data => {
                     setFetchDaata(data);
@@ -106,6 +108,32 @@ const Shop = () => {
             })
     };
 
+
+    const frmSubmit = (id) => {
+
+
+
+        fetch('https://api-store-iota.vercel.app/store/cart/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Token ${sessionStorage.getItem('token')}`
+            },
+            body: JSON.stringify({
+                product_id: id,
+                quantity: 1,
+                color: 'black',
+                size: 'm'
+            })
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Item added:', data);
+
+            })
+            .catch(error => console.error('Error adding item to cart:', error));
+    }
+
     return (
         <div className='min-h-screen '>
             <TopBanner title={"Shop "} />
@@ -124,9 +152,9 @@ const Shop = () => {
                                         <img src={e.image} alt="" className="hover:scale-110 duration-500 absolute" loading='lazy' />
                                         <div className='absolute flex justify-center items-center w-full h-full backdrop-blur-sm opacity-0 transition-opacity hover:opacity-100 gap-3'>
 
-                                            {/* <span className="text-gray-900 bg-primary p-3 rounded-full text-2xl" onClick={() => frmSubmit(e.id)}>
+                                            <span className="text-gray-900 bg-primary p-3 rounded-full text-2xl" onClick={() => frmSubmit(e.id)}>
                                                 <FaShoppingCart />
-                                            </span> */}
+                                            </span>
 
 
 
@@ -231,6 +259,10 @@ const Shop = () => {
                     </div>
 
                 </div>
+            </div>
+            <div>
+                <Brand />
+
             </div>
         </div>
     )

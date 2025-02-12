@@ -12,7 +12,7 @@ const Orderproduct = () => {
 
     // Fetch orders filtered by seller
     useEffect(() => {
-        fetch(`https://api-clothify.onrender.com/store/orders/filter-by-seller/?seller=${sessionStorage.getItem('username')}`)
+        fetch(`https://api-store-iota.vercel.app/store/orders/filter-by-seller/?seller=${sessionStorage.getItem('username')}`)
             .then(res => {
                 if (!res.ok) {
                     throw new Error("Failed to fetch orders.");

@@ -17,7 +17,7 @@ const Hero = () => {
 
 
     useEffect(() => {
-        fetch('https://api-clothify.onrender.com/store/products/?all=True')
+        fetch('https://api-store-iota.vercel.app/store/products/?all=True')
             .then((res) => res.json())
             .then((data) => {
                 setProduct(data);

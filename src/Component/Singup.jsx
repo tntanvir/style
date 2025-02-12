@@ -66,7 +66,7 @@ const Singup = () => {
         formData.append('user_type', type)
         formData.append('password', password)
         formData.append('password2', confirmPassword)
-        fetch('https://api-clothify.onrender.com/authore/register/', {
+        fetch('https://api-store-iota.vercel.app/authore/register/', {
             method: 'POST',
             body: formData,
 
@@ -118,7 +118,7 @@ const Singup = () => {
 
     const Singin = (e) => {
         e.preventDefault()
-        fetch('https://api-clothify.onrender.com/authore/login/', {
+        fetch('https://api-store-iota.vercel.app/authore/login/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
