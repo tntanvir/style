@@ -8,7 +8,7 @@ const Private = ({ childern }) => {
 
     return (
 
-        sessionStorage.getItem("username") ? childern : <Navigate to="/login" replace state={{ from: location }} />
+        sessionStorage.getItem("username") ? childern : <Navigate to="/singin" replace state={{ from: location }} />
 
     );
 };
