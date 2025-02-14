@@ -8,8 +8,9 @@ import Brand from './Brand'
 import BannerSlider from './BannerSlider'
 import Nexthero from './Nexthero'
 import Service from './Service'
-import { Clintreviews } from './Clintreviews'
+
 import ShowCategory from './ShowCategory'
+import SlideReviews from './SlideReviews'
 
 
 const Home = () => {
@@ -24,7 +25,8 @@ const Home = () => {
             <ShowCategory />
             {/* <HomeLogin />
             <MapLocation /> */}
-            <Clintreviews />
+            {/* <Clintreviews /> */}
+            <SlideReviews />
             <Brand />
         </div>
     )

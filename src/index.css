@@ -56,3 +56,13 @@
 .animate-fadeInUp {
     animation: fadeInUp 1s ease forwards;
 }
+
+
+.gridbg {
+    background-image: linear-gradient(rgba(208, 208, 208, 0.39) 0.5px, transparent 0.5px), linear-gradient(to right, rgba(208, 208, 208, 0.39) 0.5px, transparent 0.5px);
+    background-size: 57px 57px;
+    background-color: rgba(255, 255, 255, 0.31);
+    border: .4px solid rgba(0, 0, 0, 0.116);
+
+
+}
