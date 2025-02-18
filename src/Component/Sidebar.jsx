@@ -4,6 +4,12 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import { contextAPI } from '../App';
+import { CgProfile } from 'react-icons/cg';
+import { MdLibraryAdd } from 'react-icons/md';
+import { FaHistory } from 'react-icons/fa';
+import { IoBagAddSharp } from 'react-icons/io5';
+import { VscGitPullRequestGoToChanges } from 'react-icons/vsc';
+import { IoIosLogOut } from 'react-icons/io';
 
 const Sidebar = () => {
     const [pageLoad, setPageLoad] = useContext(contextAPI);
@@ -64,30 +70,35 @@ const Sidebar = () => {
                 <nav>
                     <ul>
                         <li className="p-3 bg-blue-500 text-white rounded-lg mt-2 ">
-                            <NavLink to="/profile" activeClassName="font-bold" className="block p-2 text-center">
-                                Profile
+                            <NavLink to="/profile" activeClassName="font-bold" className="flex justify-center items-center gap-3 p-2 ">
+                                <CgProfile className='text-2xl' /> Profile
                             </NavLink>
                         </li>
 
                         {userdata?.user_type === 'seller' && <li className="p-3 bg-white text-blue-500 rounded-lg mt-2 cursor-pointer text-center hover:bg-blue-500 hover:text-white transition">
-                            <NavLink to="addproduct" activeClassName="font-bold" className="block p-2 text-center">
-                                Add Product
+                            <NavLink to="addproduct" activeClassName="font-bold" className="flex justify-center items-center gap-3 p-2">
+                                <MdLibraryAdd className='text-2xl' />  Add Product
+                            </NavLink>
+                        </li>}
+                        {userdata?.user_type === 'seller' && <li className="p-3 bg-white text-blue-500 rounded-lg mt-2 cursor-pointer text-center hover:bg-blue-500 hover:text-white transition">
+                            <NavLink to="myaddedproduct" activeClassName="font-bold" className="flex justify-center items-center gap-3 p-2">
+                                <IoBagAddSharp className='text-2xl' />  MY Added Product
                             </NavLink>
                         </li>}
 
                         <li className="p-3 bg-white text-blue-500 rounded-lg mt-2 cursor-pointer text-center hover:bg-blue-500 hover:text-white transition">
-                            <NavLink to="orderhistory" activeClassName="font-bold" className="block p-2 text-center">
-                                My  Order History
+                            <NavLink to="orderhistory" activeClassName="font-bold" className="flex justify-center items-center gap-3 p-2">
+                                <FaHistory className='text-2xl' />  My  Order History
                             </NavLink>
                         </li>
                         {userdata?.user_type !== 'buyer' && userdata?.user_type !== 'admin' && <li className="p-3 bg-white text-blue-500 rounded-lg mt-2 cursor-pointer text-center hover:bg-blue-500 hover:text-white transition">
-                            <NavLink to="orderproduct" activeClassName="font-bold" className="block p-2 text-center">
-                                Request Order Product
+                            <NavLink to="orderproduct" activeClassName="font-bold" className="flex justify-center items-center gap-3 p-2">
+                                <VscGitPullRequestGoToChanges className='text-2xl' />  Request Order Product
                             </NavLink>
                         </li>}
-                        <li className="p-3 bg-red-500 text-white rounded-lg mt-2 cursor-pointer text-center hover:bg-red-700 transition">
-                            <button onClick={handleLogout} className="block p-2 text-center w-full">
-                                Logout
+                        <li className="p-3 bg-red-500 text-white rounded-lg mt-2 cursor-pointer text-center hover:bg-red-700 transition flex justify-center items-center">
+                            <button onClick={handleLogout} className="flex justify-center items-center gap-3 p-2 text-center">
+                                Logout <IoIosLogOut className='text-2xl' />
                             </button>
                         </li>
                     </ul>
