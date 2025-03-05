@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import DashboardChart from "./DashboardChart";
 
 const Profile = () => {
     const [userdata, setUserdata] = useState(null);
@@ -139,6 +140,7 @@ const Profile = () => {
                     Update Profile
                 </button>
             </div>
+            {/* <DashboardChart /> */}
         </div>
     );
 };

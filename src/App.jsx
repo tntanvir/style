@@ -2,7 +2,7 @@ import About from "./Component/About";
 import Blog from "./Component/Blog";
 import Contact from "./Component/Contact";
 import Home from "./Component/Home";
-import { Menu } from "./Component/Menu"
+import { Menus } from "./Component/Menu"
 import {
   BrowserRouter as Router,
   Routes,
@@ -27,6 +27,7 @@ import Orderproduct from "./Component/Orderproduct";
 import Singup from "./Component/Singup";
 import CategoryAllProduct from "./Component/CategoryAllProduct";
 import MyAddedProduct from "./Component/MyAddedProduct";
+import DashboardChart from "./Component/DashboardChart";
 
 export const contextAPI = createContext();
 
@@ -37,7 +38,7 @@ const App = () => {
     <div >
       <contextAPI.Provider value={[pageLoad, setPageLoad]}>
         <Router>
-          <Menu />
+          <Menus />
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/about' element={<About />} />
@@ -62,6 +63,7 @@ const App = () => {
 
             <Route path="/profile" element={<MainLayout />}>
               <Route path="" element={<Profile />} />
+              <Route path="dashboard" element={<DashboardChart />} />
               <Route path="addproduct" element={<AddProduct />} />
               <Route path="myaddedproduct" element={<MyAddedProduct />} />
               <Route path="orderhistory" element={<Orders />} />
