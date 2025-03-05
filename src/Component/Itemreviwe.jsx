@@ -264,7 +264,7 @@ const Itemreviwe = ({ url, id }) => {
                     }
                 </div>
                 <div className=' '>
-                    <ShortBlog />
+                    {/* <ShortBlog /> */}
                 </div>
             </div>
             <>

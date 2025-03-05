@@ -13,6 +13,7 @@ import {
     DialogBody,
     DialogFooter,
 } from "@material-tailwind/react";
+import { Link } from 'react-router-dom';
 
 const ShopingCart = () => {
     const [cart, setCartItem] = useState(null)
@@ -157,7 +158,7 @@ const ShopingCart = () => {
 
                     </div>
                     {
-                        cart && (cart?.items)?.map((item, i) => (
+                        cart ? (cart?.items)?.map((item, i) => (
                             <div key={i} className="flex items-center justify-between border-b border-gray-200 py-4">
                                 <div className="flex items-center">
                                     <img
@@ -166,7 +167,7 @@ const ShopingCart = () => {
                                         className="w-20 h-20 rounded-md object-cover"
                                     />
                                     <div className="ml-4">
-                                        <h2 className="text-lg font-semibold">{item.product.name}</h2>
+                                        <Link to={`/shop/${item.id}`}><h2 className="text-lg font-semibold">{item.product.name}</h2></Link>
                                         <p className="text-gray-500">price {item.product.price}</p>
                                     </div>
                                 </div>
@@ -190,7 +191,7 @@ const ShopingCart = () => {
                                             <span className="font-semibold ml-4">{item.subTotal}</span>
                                         </div>
 
-                                        <div className='flex gap-2 '>
+                                        {/* <div className='flex gap-2 '>
                                             <Select
                                                 label="Select Color"
                                                 value={selCol ? selCol : `${item.color}`}
@@ -217,7 +218,7 @@ const ShopingCart = () => {
                                                 }
 
                                             </Select>
-                                        </div>
+                                        </div> */}
                                     </div>
                                     <RiDeleteBin6Fill
                                         className="cursor-pointer text-gray-700 ml-4 hover:text-red-600 duration-150"
@@ -226,7 +227,25 @@ const ShopingCart = () => {
                                     />
                                 </div>
                             </div>
-                        ))
+                        )) :
+                            <div className="space-y-4">
+                                {[...Array(3)].map((_, i) => (
+                                    <div key={i} className="flex items-center justify-between border-b border-gray-200 py-4 animate-pulse">
+                                        <div className="flex items-center gap-4">
+                                            <div className="w-20 h-20 bg-gray-300 rounded-md"></div>
+                                            <div className="space-y-2">
+                                                <div className="h-5 bg-gray-300 rounded w-32"></div>
+                                                <div className="h-4 bg-gray-300 rounded w-20"></div>
+                                            </div>
+                                        </div>
+                                        <div className="flex items-center gap-3">
+                                            <div className="h-10 w-10 bg-gray-300 rounded"></div>
+                                            <div className="h-10 w-10 bg-gray-300 rounded"></div>
+                                            <div className="h-10 w-10 bg-gray-300 rounded"></div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
                     }
 
                     <div className='py-9 flex justify-between'>
@@ -281,6 +300,4 @@ const ShopingCart = () => {
 };
 
 export default ShopingCart;
-
-
 

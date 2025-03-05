@@ -1,12 +1,16 @@
-import { Option, Typography } from '@material-tailwind/react';
-import { Button } from '@material-tailwind/react';
+import { Typography } from '@material-tailwind/react';
 import { Card } from '@material-tailwind/react';
 import { Input } from '@material-tailwind/react';
-import { Tab, TabPanel, Tabs, TabsBody, TabsHeader } from '@material-tailwind/react';
+import {
+    Button,
+    Dialog,
+    DialogHeader,
+    DialogBody,
+    DialogFooter,
+} from "@material-tailwind/react";
 
 import { useState } from 'react';
 import axios from 'axios';
-import { Select } from '@material-tailwind/react';
 import { toast, Bounce } from 'react-toastify';
 
 
@@ -14,6 +18,7 @@ import { useNavigate } from "react-router-dom";
 import { useContext } from 'react';
 import { contextAPI } from '../App';
 import { Link } from 'react-router-dom';
+import { FaCopy } from 'react-icons/fa6';
 
 
 
@@ -166,8 +171,32 @@ const Login = () => {
             })
 
     }
+
+    const [open, setOpen] = useState(false);
+
+    const handleOpen = () => setOpen(!open);
+
+
+    const copyclick = (text) => {
+        if (text == 'buyer') {
+            setLogusername('fetaf30659')
+            setLogpassword('Tanvir12345678')
+            handleOpen()
+        }
+        else if (text == 'seller') {
+            setLogusername('seller')
+            setLogpassword('Tanvir12345678')
+            handleOpen()
+        }
+        else {
+            setLogusername('tntanvir')
+            setLogpassword('123')
+            handleOpen()
+        }
+    }
+
     return (
-        <div className='min-h-screen flex items-center justify-center'>
+        <div className='min-h-screen flex items-center justify-center flex-col gap-3'>
             <Card color="transparent" className=''>
                 <h1 className='text-center text-3xl font-bold text-black'>Sing in</h1>
                 <form className="mt-5 mb-2 w-80 max-w-screen-lg sm:w-96 p-3 " onSubmit={Singin}>
@@ -214,6 +243,57 @@ const Login = () => {
                     </Link>
                 </Typography>
             </Card>
+            <h1 className='hover:underline cursor-pointer' onClick={handleOpen}>Demo Login</h1>
+            <>
+                <Dialog open={open} handler={handleOpen}>
+                    <DialogHeader>Demo Login info</DialogHeader>
+                    <DialogBody>
+                        <h1 className='font-bold'>Buyer</h1>
+                        <div className='flex justify-between items-center'>
+                            <div>
+                                <p> username : fetaf30659</p>
+                                <p>password : Tanvir12345678</p>
+                            </div>
+                            <div className='flex justify-between items-center'>
+                                <FaCopy className='text-2xl' onClick={() => copyclick('buyer')} />
+                            </div>
+                        </div>
+                        <h1 className='font-bold'>Seller</h1>
+                        <div className='flex justify-between items-center'>
+                            <div>
+                                <p> username : seller</p>
+                                <p>password : Tanvir12345678</p>
+                            </div>
+                            <div className='flex justify-between items-center'>
+                                <FaCopy className='text-2xl' onClick={() => copyclick('seller')} />
+                            </div>
+                        </div>
+                        <h1 className='font-bold'>Admin</h1>
+                        <div className='flex justify-between items-center'>
+                            <div>
+                                <p> username : tntanvir</p>
+                                <p>password : 123</p>
+                            </div>
+                            <div className='flex justify-between items-center'>
+                                <FaCopy className='text-2xl' onClick={() => copyclick('admin')} />
+                            </div>
+                        </div>
+                    </DialogBody>
+                    <DialogFooter>
+                        <Button
+                            variant="text"
+                            color="red"
+                            onClick={handleOpen}
+                            className="mr-1"
+                        >
+                            <span>Cancel</span>
+                        </Button>
+                        <Button variant="gradient" color="green" onClick={handleOpen}>
+                            <span>Confirm</span>
+                        </Button>
+                    </DialogFooter>
+                </Dialog>
+            </>
         </div>
     );
 };
