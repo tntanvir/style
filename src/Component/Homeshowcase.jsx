@@ -59,8 +59,8 @@ const Homeshowcase = () => {
     const datas = Array.from({ length: 8 }, (_, i) => ({ id: i + 1 }));
 
     return (
-        <div className="min-h-screen bim flex flex-col items-center pb-5 pt-10 mb-5" >
-            <div className="w-11/12 bg-white p-3 shadow-md rounded-md flex flex-col md:flex-row justify-between px-10 items-center">
+        <div className="min-h-screen bim flex flex-col items-center pb-5 pt-10 mb-5 " >
+            <div className="w-full bg-white p-3 shadow-md rounded-md flex flex-col md:flex-row justify-between px-10 items-center">
                 <Typography variant="h3">{title}</Typography>
                 <Link to={'/shop'}><p className="hover:underline">show more</p></Link>
             </div>
@@ -80,7 +80,7 @@ const Homeshowcase = () => {
                                 </span>
 
                                 {/* Hover Icons */}
-                                <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300">
+                                <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300 backdrop-blur-sm">
                                     <button className="bg-yellow-600 p-2 rounded-full shadow-md hover:scale-110 transition-transform duration-300 text-2xl" onClick={() => frmSubmit(e.id)}>
                                         <FaShoppingCart />
                                     </button>

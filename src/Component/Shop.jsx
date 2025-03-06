@@ -58,8 +58,10 @@ const Shop = () => {
     }, [])
 
     const fillterItm = (cata) => {
-        console.log(cata)
+        // console.log(cata)
         if (cata === "All") {
+            setFetchDaata(null);
+
             fetch('https://api-store-iota.vercel.app/store/products/')
                 .then(res => res.json())
                 .then(data => {
@@ -69,6 +71,8 @@ const Shop = () => {
                 })
         }
         else {
+            setFetchDaata(null);
+
             fetch(`https://api-store-iota.vercel.app/store/products/?category=${cata}`)
                 .then(res => res.json())
                 .then(data => {
@@ -166,11 +170,11 @@ const Shop = () => {
                     <div>
                         <h1 className='text-center text-xl'>Category</h1>
                         <div>
-                            <ul className="flex flex-wrap gap-1 justify-center items-center">
-                                <li onClick={() => fillterItm("All")} className="hover:bg-primary px-5 rounded-md py-1 bg-gray-200 cursor-pointer">All</li>
+                            <ul className="flex flex-col gap-1 justify-center items-center">
+                                <li onClick={() => fillterItm("All")} className="hover:bg-primary  rounded-md py-2 bg-gray-200 cursor-pointer w-full px-5">All</li>
                                 {
                                     cata && cata.map((e) => (
-                                        <li key={e.id} onClick={() => fillterItm(e.name)} className="hover:bg-primary px-5 rounded-md py-1 bg-gray-200 cursor-pointer">{e.name}</li>
+                                        <li key={e.id} onClick={() => fillterItm(e.name)} className="hover:bg-primary rounded-md py-2 bg-gray-200 cursor-pointer w-full px-5">{e.name}</li>
                                     ))
                                 }
                             </ul>
@@ -178,15 +182,15 @@ const Shop = () => {
                     </div>
 
                 </div>
-                <div className='w-full flex flex-col justify-start items-center'>
-                    <div className="md:w-11/12 w-full bg-white p-3 shadow-lg rounded-md flex justify-between px-10 items-center">
+                <div className='w-full flex flex-col justify-start items-center px-2'>
+                    <div className=" w-full bg-white p-3 shadow-lg rounded-md flex justify-between px-10 items-center">
                         <Typography >showing {pageData} of {fetchDaata?.count} result </Typography>
 
                     </div>
                     <div className='flex flex-wrap justify-around gap-2 py-3  min-h-screen'>
                         {
                             fetchDaata ? (fetchDaata.results).map((e) => (
-                                <div key={e.id} className="shadow-md   w-72 rounded-md overflow-hidden flex flex-col justify-start cursor-pointer max-h-96 ">
+                                <div key={e.id} className="shadow-md   w-72 rounded-md overflow-hidden flex flex-col justify-start cursor-pointer max-h-96 my-2">
 
                                     <div className="h-64 overflow-hidden relative">
                                         <img src={e.image} alt="" className="hover:scale-110 duration-500 absolute" loading='lazy' />

@@ -151,7 +151,7 @@ const Login = () => {
                         progress: undefined,
                         theme: "light",
                         transition: Bounce,
-                        onClose: () => navigate('/profile'),
+                        onClose: () => navigate('/profile/dashboard'),
                     });
                 }
                 else {

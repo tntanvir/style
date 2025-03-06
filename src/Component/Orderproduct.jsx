@@ -1,13 +1,14 @@
 
+// Orderproduct.jsx
 import { useState, useEffect } from "react";
 import { Chip } from "@material-tailwind/react";
 import ProductStatus from "./ProductStatus";
-import { Link } from "react-router-dom";
 
 const Orderproduct = () => {
     const [items, setItems] = useState([]); // State for storing items
     const [loading, setLoading] = useState(true); // State for loading
     const [error, setError] = useState(null); // State for error handling
+
 
     // Fetch orders filtered by seller
     useEffect(() => {
@@ -29,49 +30,27 @@ const Orderproduct = () => {
     }, [loading]);
 
     if (loading) {
-        return (
-            <div className="p-4 max-h-screen overflow-y-scroll">
-                <h2 className="text-2xl font-semibold mb-4">
-                    <div className="bg-gray-300 animate-pulse h-6 w-1/4"></div>
-                </h2>
-                <div className="space-y-4">
-                    {[...Array(5)].map((_, index) => (
-                        <div key={index} className="bg-white shadow rounded-lg p-4 mb-6 border border-gray-200">
-                            <div className="mb-4">
-                                <div className="bg-gray-300 animate-pulse h-6 w-1/2 mb-2"></div>
-                                <div className="bg-gray-300 animate-pulse h-4 w-2/3 mb-2"></div>
-                                <div className="bg-gray-300 animate-pulse h-4 w-1/4 mb-2"></div>
-                                <div className="flex gap-4">
-                                    <div className="bg-gray-300 animate-pulse h-4 w-1/4"></div>
-                                </div>
-                                <div className="flex gap-4 items-center">
-                                    <div className="bg-gray-300 animate-pulse h-6 w-1/4"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <h4 className="text-lg font-medium mb-2">
-                                    <div className="bg-gray-300 animate-pulse h-6 w-1/3"></div>
-                                </h4>
-                                <div className="flex items-center bg-gray-50 p-3 mb-3 rounded-lg border">
-                                    <div className="bg-gray-300 animate-pulse h-16 w-16 rounded-full mr-4"></div>
-                                    <div className="ml-4">
-                                        <div className="bg-gray-300 animate-pulse h-4 w-3/4 mb-2"></div>
-                                        <div className="bg-gray-300 animate-pulse h-4 w-1/2 mb-2"></div>
-                                        <div className="bg-gray-300 animate-pulse h-4 w-1/4 mb-2"></div>
-                                        <div className="bg-gray-300 animate-pulse h-4 w-1/3 mb-2"></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
+        return <div className="p-4 max-h-screen overflow-y-scroll">
+            <h2 className="text-2xl font-semibold mb-4">Order History</h2>
+            <div className="bg-white shadow rounded-lg p-4 mb-6 border border-gray-200 animate-pulse">
+                <div className="h-6 bg-gray-300 rounded w-1/3 mb-4"></div>
+                <div className="h-4 bg-gray-300 rounded w-1/2 mb-2"></div>
+                <div className="h-4 bg-gray-300 rounded w-1/4 mb-2"></div>
+                <div className="h-32 bg-gray-300 rounded w-full mb-4"></div>
+                <div className="flex space-x-4">
+                    <div className="h-12 w-12 bg-gray-300 rounded-full"></div>
+                    <div className="h-12 w-12 bg-gray-300 rounded-full"></div>
+                    <div className="h-12 w-12 bg-gray-300 rounded-full"></div>
                 </div>
             </div>
-        );
+        </div>;
     }
 
     if (error) {
         return <div>Error: {error}</div>;
     }
+
+
 
     return (
         <div className="p-4 max-h-screen overflow-y-scroll">
@@ -85,19 +64,20 @@ const Orderproduct = () => {
                             className="bg-white shadow rounded-lg p-4 mb-6 border border-gray-200"
                         >
                             <div className="mb-4">
-                                <Link to={`/shop/${item.id}`}>
-                                    <h3 className="text-xl font-semibold">{item.product.name}</h3>
-                                </Link>
+                                <h3 className="text-xl font-semibold">{item.product.name}</h3>
                                 <p>Ordered By: {item.product.user.username}</p>
                                 <p>Price: ${item.price}</p>
                                 <div className="flex gap-4">Subtotal: ${item.subTotal}</div>
                                 <div className="flex gap-4 items-center">Status:
-                                    <ProductStatus loading={loading} setLoading={setLoading} statuss={item.status} orderId={item.id} />
-                                </div>
+
+
+                                    <ProductStatus loading={loading} setLoading={setLoading} statuss={item.status} orderId={item.id} /></div>
                             </div>
                             <div>
                                 <h4 className="text-lg font-medium mb-2">Order Details:</h4>
-                                <div className="flex items-center bg-gray-50 p-3 mb-3 rounded-lg border">
+                                <div
+                                    className="flex items-center bg-gray-50 p-3 mb-3 rounded-lg border"
+                                >
                                     <img
                                         src={item.product.image}
                                         alt={item.product.name}
