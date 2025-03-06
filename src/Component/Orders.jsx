@@ -5,6 +5,7 @@ import ShowUserInfo from "./ShowUserInfo";
 import { Chip } from "@material-tailwind/react";
 import UpdateOrderStatus from "./UpdateOrderStatus";
 import ProductStatus from "./ProductStatus";
+import { Link } from "react-router-dom";
 
 const Orders = () => {
     const [orders, setOrders] = useState([]);
@@ -141,7 +142,9 @@ const Orders = () => {
                                                     className="w-16 h-16 object-cover rounded mr-4"
                                                 />
                                                 <div>
-                                                    <p className="font-semibold">{item.product.name}</p>
+                                                    <Link to={`/shop/${item.id}`}>
+                                                        <p className="font-semibold">{item.product.name}</p>
+                                                    </Link>
                                                     <p>{item.size} / {item.color}</p>
                                                     <p>Quantity: {item.quantity}</p>
                                                     <p>Price: ${item.price}</p>

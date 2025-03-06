@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { Chip } from "@material-tailwind/react";
 import ProductStatus from "./ProductStatus";
+import { Link } from "react-router-dom";
 
 const Orderproduct = () => {
     const [items, setItems] = useState([]); // State for storing items
@@ -84,7 +85,9 @@ const Orderproduct = () => {
                             className="bg-white shadow rounded-lg p-4 mb-6 border border-gray-200"
                         >
                             <div className="mb-4">
-                                <h3 className="text-xl font-semibold">{item.product.name}</h3>
+                                <Link to={`/shop/${item.id}`}>
+                                    <h3 className="text-xl font-semibold">{item.product.name}</h3>
+                                </Link>
                                 <p>Ordered By: {item.product.user.username}</p>
                                 <p>Price: ${item.price}</p>
                                 <div className="flex gap-4">Subtotal: ${item.subTotal}</div>

@@ -59,7 +59,7 @@ const SlideReviews = () => {
     }, []);
 
     return (
-        <section className="min-h-screen flex flex-col justify-center items-center px-4">
+        <section className="flex flex-col justify-center items-center px-4">
             <div className="mb-10 text-center">
                 <h1 className="text-3xl">Testimonials</h1>
                 <p className="text-sm text-gray-500">What our users say about us</p>

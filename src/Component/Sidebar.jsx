@@ -200,11 +200,11 @@ const Sidebar = () => {
                             </NavLink>
                         </li>
 
-                        {userdata?.user_type === 'seller' && <li className="p-3 bg-white text-blue-500 rounded-lg mt-2 cursor-pointer text-center hover:bg-blue-500 hover:text-white transition">
+                        <li className="p-3 bg-white text-blue-500 rounded-lg mt-2 cursor-pointer text-center hover:bg-blue-500 hover:text-white transition">
                             <NavLink to="dashboard" activeClassName="font-bold" className="flex justify-center items-center gap-3 p-2">
                                 <MdLibraryAdd className='text-2xl' />  Dashboard
                             </NavLink>
-                        </li>}
+                        </li>
                         {userdata?.user_type === 'seller' && <li className="p-3 bg-white text-blue-500 rounded-lg mt-2 cursor-pointer text-center hover:bg-blue-500 hover:text-white transition">
                             <NavLink to="addproduct" activeClassName="font-bold" className="flex justify-center items-center gap-3 p-2">
                                 <MdLibraryAdd className='text-2xl' />  Add Product

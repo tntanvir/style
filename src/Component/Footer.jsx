@@ -54,7 +54,7 @@ export function Footer() {
                     ))}
                 </div>
                 <div>
-                    <img src="https://phitron.io/assets/payments-f73bdf42.png" alt="" srcset="" />
+                    <img src="https://phitron.io/assets/payments--ZYUOnm8.png" alt="" srcset="" />
                 </div>
                 <div className="flex w-full flex-col items-center justify-center border-t border-white-50 py-4 md:flex-row md:justify-between">
                     <Typography

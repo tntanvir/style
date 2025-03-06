@@ -237,9 +237,11 @@ export function Menus() {
                 <Avatar size="sm" className="cursor-pointer" src={userdata.image} alt="avatar" />
               </MenuHandler>
               <MenuList>
-                <MenuItem>
-                  <Link to="/profile">Profile</Link>
-                </MenuItem>
+                <Link to="/profile">
+                  <MenuItem>
+                    Profile
+                  </MenuItem>
+                </Link>
                 <MenuItem onClick={handleLogout}>Logout</MenuItem>
               </MenuList>
             </Menu>
