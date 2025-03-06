@@ -1,7 +1,4 @@
-
-// Orderproduct.jsx
 import { useState, useEffect } from "react";
-import { Chip } from "@material-tailwind/react";
 import ProductStatus from "./ProductStatus";
 
 const Orderproduct = () => {
@@ -12,13 +9,14 @@ const Orderproduct = () => {
 
     // Fetch orders filtered by seller
     useEffect(() => {
-        fetch(`https://api-store-iota.vercel.app/store/orders/filter-by-seller/?seller=${sessionStorage.getItem('username')}`)
-            .then(res => {
-                if (!res.ok) {
-                    throw new Error("Failed to fetch orders.");
-                }
-                return res.json();
-            })
+        fetch(`https://api-store-iota.vercel.app/store/orders/filter-by-seller/?seller=${sessionStorage.getItem('username')}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Token ${sessionStorage.getItem('token')}`
+            }
+        })
+            .then(res => res.json())
             .then(data => {
                 setItems(data);
                 setLoading(false);
