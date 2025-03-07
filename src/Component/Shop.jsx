@@ -8,6 +8,7 @@ import ShortBlog from './ShortBlog';
 import { useEffect } from 'react';
 import { IconButton, Typography } from "@material-tailwind/react";
 import Brand from './Brand';
+import { Bounce, toast } from 'react-toastify';
 
 
 
@@ -133,7 +134,18 @@ const Shop = () => {
         })
             .then(response => response.json())
             .then(data => {
-                console.log('Item added:', data);
+                toast.success('Product add to cart', {
+                    position: "top-center",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                    transition: Bounce
+
+                });
 
             })
             .catch(error => console.error('Error adding item to cart:', error));

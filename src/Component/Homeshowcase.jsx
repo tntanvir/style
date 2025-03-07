@@ -4,23 +4,12 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { FaExternalLinkAlt, FaShoppingCart, FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { Bounce, toast } from "react-toastify";
 const title = "Recently Added";
 
 
 const Homeshowcase = () => {
-    // const [data, setData] = useState(ProductData);
-    // const fillterItm = (cata) => {
-    //     if (cata !== "All") {
 
-    //         const itm = ProductData.filter(pro => pro.cate === cata);
-    //         setData(itm);
-    //     }
-    //     else {
-    //         setData(ProductData);
-
-    //     }
-
-    // }
 
     const [product, setProduct] = useState(null);
     useEffect(() => {
@@ -50,7 +39,18 @@ const Homeshowcase = () => {
         })
             .then(response => response.json())
             .then(data => {
-                console.log('Item added:', data);
+                toast.success('Product add to Cart', {
+                    position: "top-center",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                    transition: Bounce
+
+                });
 
             })
             .catch(error => console.error('Error adding item to cart:', error));

@@ -8,6 +8,7 @@ import { Rating } from "@material-tailwind/react";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { Bounce, toast } from 'react-toastify';
 
 var settings = {
     className: "center",
@@ -90,7 +91,18 @@ const CatagoryAllData = ({ cta, id }) => {
         })
             .then(response => response.json())
             .then(data => {
-                console.log('Item added:', data);
+                toast.success(data.message, {
+                    position: "top-center",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                    theme: "light",
+                    transition: Bounce
+
+                });
             })
             .catch(error => console.error('Error adding item to cart:', error));
     };

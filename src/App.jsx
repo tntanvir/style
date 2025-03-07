@@ -28,6 +28,7 @@ import Singup from "./Component/Singup";
 import CategoryAllProduct from "./Component/CategoryAllProduct";
 import MyAddedProduct from "./Component/MyAddedProduct";
 import DashboardChart from "./Component/DashboardChart";
+import AdminApprove from "./Component/AdminApprove";
 
 export const contextAPI = createContext();
 
@@ -68,6 +69,7 @@ const App = () => {
               <Route path="myaddedproduct" element={<MyAddedProduct />} />
               <Route path="orderhistory" element={<Orders />} />
               <Route path="orderproduct" element={<Orderproduct />} />
+              <Route path="approved" element={<AdminApprove />} />
 
             </Route>
           </Routes>
