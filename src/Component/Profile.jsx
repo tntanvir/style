@@ -213,12 +213,12 @@ const Profile = () => {
     };
 
     return (
-        <div className="relative flex justify-center items-center min-h-screen bg-gray-100">
+        <div className="relative flex justify-center items-center min-h-screen bg-gray-100 w-full">
 
             {/* Background Grid */}
             <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#e0e0e0_1px,transparent_1px),linear-gradient(to_bottom,#e0e0e0_1px,transparent_1px)] bg-[size:5rem_3rem]"></div>
 
-            {formData.image ? (<div className="bg-white p-10 rounded-xl shadow-2xl max-w-4xl w-full flex flex-col items-center relative z-10">
+            {formData.image ? (<div className="bg-white p-10 rounded-xl shadow-2xl md:max-w-4xl w-full flex flex-col items-center relative z-10">
                 <h1 className="text-4xl font-extrabold text-center mb-8 bg-gradient-to-r from-blue-500 to-purple-500 text-transparent bg-clip-text">
                     Profile
                 </h1>
@@ -250,7 +250,7 @@ const Profile = () => {
                 </div>
 
                 {/* User Information */}
-                <div className="grid grid-cols-2 gap-6 w-full">
+                <div className="md:grid  grid-cols-2 gap-6 w-full">
                     <div>
                         <label className="block text-gray-600 font-medium">Name</label>
                         <input

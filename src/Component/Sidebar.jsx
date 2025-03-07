@@ -178,7 +178,7 @@ const Sidebar = () => {
             .catch(err => console.error('Logout error:', err));
     };
     return (
-        <div className="w-1/4 min-h-screen bg-gray-100 p-4">
+        <div className="w-1/4 min-h-screen bg-gray-100 p-4 md:block hidden">
 
             <aside className="">
                 <div className="mb-8 text-center">
