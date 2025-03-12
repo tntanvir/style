@@ -1,6 +1,11 @@
 # E-Commerce Platform
 
-Welcome to **PhitShop** – a modern e-commerce platform where buyers and sellers can interact, manage products, and complete transactions securely.
+Welcome to **StyleSwap** – a modern e-commerce platform where buyers and sellers can interact, manage products, and complete transactions securely.
+
+## Live Links
+- **Client Live Link:** [StyleSwap](https://style-23.web.app/)
+- **Backend Repository:** [GitHub](https://github.com/tntanvir/api-store)
+- **Backend Live Link:** [API Store](https://api-store-iota.vercel.app/)
 
 ## Features
 
@@ -44,8 +49,6 @@ Welcome to **PhitShop** – a modern e-commerce platform where buyers and seller
 - **React Router DOM** – for seamless navigation.
 - **React-Toastify** – for user notifications.
 - **Material Tailwind** – for UI components.
-
-
 
 ## 🔥 Contributing
 We welcome contributions! Feel free to fork this repository and submit a pull request.

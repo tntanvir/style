@@ -243,7 +243,12 @@ const Sidebar = () => {
                                 <FaHistory className='text-2xl' />  My  Order History
                             </NavLink>
                         </li>
-                        {userdata?.user_type == 'seller' || userdata?.user_type == 'admin' && <li className="p-2 bg-white text-blue-500 rounded-lg mt-2 cursor-pointer text-start hover:bg-blue-500 hover:text-white transition">
+                        {userdata?.user_type == 'seller' && <li className="p-2 bg-white text-blue-500 rounded-lg mt-2 cursor-pointer text-start hover:bg-blue-500 hover:text-white transition">
+                            <NavLink to="orderproduct" activeClassName="font-bold" className="flex justify-center items-center gap-3 p-2">
+                                <VscGitPullRequestGoToChanges className='text-2xl' />   Order My added Product
+                            </NavLink>
+                        </li>}
+                        {userdata?.user_type == 'admin' && <li className="p-2 bg-white text-blue-500 rounded-lg mt-2 cursor-pointer text-start hover:bg-blue-500 hover:text-white transition">
                             <NavLink to="orderproduct" activeClassName="font-bold" className="flex justify-center items-center gap-3 p-2">
                                 <VscGitPullRequestGoToChanges className='text-2xl' />   Order My added Product
                             </NavLink>
